@@ -1,0 +1,18 @@
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search h1{
+   font-size: 20px;
+   padding: 5px;
+}
+
+.search input{
+    border-bottom: 1px solid black;
+    outline: none;
+    padding: 20px;
+    border-radius: 15px;
+    width: 70%;
+}

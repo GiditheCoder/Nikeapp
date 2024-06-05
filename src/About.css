@@ -1,0 +1,13 @@
+.about--container {
+    text-align: center;
+  }
+  
+  .about-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-container p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }

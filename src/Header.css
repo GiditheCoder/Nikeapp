@@ -1,0 +1,118 @@
+header{
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* incase of any oveflow */
+    overflow: hidden;
+    padding: 30px;
+    
+
+}
+header .logo a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+}
+
+
+/* this for the nav */
+header nav{
+    display: flex;
+}
+
+/*  this is for the nav list */
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+}
+
+/* this is for the individual item */
+
+nav ul li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+    padding: 0 15px;
+}
+
+/* this is for the hover */
+
+nav ul li a:hover{
+    color: lightgreen;
+}
+
+/* this is the head cart */
+nav .nav-cart{
+    cursor: pointer;
+    position: relative;
+}
+
+/* this is to position the 0 inside  */
+
+nav .nav-cart span{
+    position: absolute;
+    top: -15px;
+    right:-2px;
+    background: crimson;
+    font-size: 10px;
+    color: white;
+    padding: 3px 5px;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+
+/* this is for the cursor */
+header .menu,
+header .close{
+    cursor: pointer;
+    display: none;
+}
+
+.products--username{
+    background-color: rgb(11, 109, 11);
+    box-shadow: 0 5px 20px 10px rgba(10, 0, 0, 0.1);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.products--username:hover{
+    background-color:  rgb(7, 97, 7);
+}
+
+/* max-width */
+@media (max-width : 760px){
+    header ul{
+        position: fixed;
+        top: -100%;
+        left:-35px;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        z-index: 99;
+        opacity: 0.97;
+        transition: 0.5s linear ;
+    }
+
+    header .menu,
+    header .close{
+        display: block;
+    }
+    header .close{
+        position: absolute;
+        top: 10px;
+        right: 20px;
+    }
+    header ul.toggle{
+      top:0;
+    }
+    nav ul li a:hover{
+        color: lightgreen;
+    }
+}

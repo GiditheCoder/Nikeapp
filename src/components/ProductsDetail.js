@@ -1,55 +1,65 @@
-
-
-// ProductDetails.js
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-import ProductsData from "./ProductsData";
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from './firebase'; // adjust the import path as necessary
 import '../Products.css';
 
-
-
-
 const ProductDetails = () => {
- 
   const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Find the product with the matching ID
-  const product = ProductsData.find(product => product.id === id);
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const productDoc = await getDoc(doc(db, 'products', id));
+        if (productDoc.exists()) {
+          setProduct({ id: productDoc.id, ...productDoc.data() });
+        } else {
+          setError('Product not found');
+        }
+      } catch (err) {
+        setError('Failed to fetch product');
+        console.error("Error fetching product: ", err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  if (!product) {
-    return <div>Product not found</div>;
+    fetchProduct();
+  }, [id]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
   }
 
   const imagePath = `/${product.src}`;
 
   return (
-    // rearrange the code
-    // makesure i only dislays the particular one
     <div>
-
-<h1 className="product--details">Product Details</h1>
-<div className="products">
-     <section className="products--section">
-      {/* <img src={product.id.src} alt="Product" /> */}
-      <img src={imagePath} alt="image" className="products--image" />
-      {/* lets call it products sizes  */}
-     
-      <h2 className="title">{product.title}</h2>
-      <p className="description">Description: {product.content}</p>
-      <p  className="price">Price: {product.price}</p>
-      <p className="colors">Colors: {product.colors}</p>
-      <p  className="count">Count: {product.count}</p>
-      <button   className="products--buttton"> Add to Cart</button>
-      </section>
+      <h1 className="product--details">Product Details</h1>
+      <div className="products">
+        <section className="products--section">
+          <img src={imagePath} alt="Product" className="products--image" />
+          <h2 className="title">{product.title}</h2>
+          <p className="description">Description: {product.content}</p>
+          <p className="price">Price: {product.price}</p>
+          <p className="colors">Colors: {product.colors}</p>
+          <p className="count">Count: {product.count}</p>
+          <button className="products--button">Add to Cart</button>
+        </section>
       </div>
-  
     </div>
-
-
   );
 }
 
 export default ProductDetails;
+
 
 
 

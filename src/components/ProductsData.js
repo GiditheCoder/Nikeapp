@@ -1,4 +1,7 @@
-export default [
+import { doc, setDoc } from "firebase/firestore";
+import { db } from './firebase';
+
+const products = [
  
         {
             id: "1",
@@ -18,7 +21,7 @@ export default [
             colors: ["red", "blue", "yellow", "green"],
             count: 1
         },
-        // Add content and price for other products
+
         {
             id: "3",
             title: "airmax3",
@@ -76,5 +79,21 @@ export default [
 
     
 ]
+
+// we need to be able to add the products to fire store
+
+const addProductstoFirestore = async () =>{
+    try{
+     for(const product of products){
+  await setDoc(doc(db , "products" , product.id) , product)
+     }
+     console.log("All products added successfully!");
+    }
+    catch(error){
+console.error("Error adding products: ", error)
+    }
+}
+
+addProductstoFirestore()
   
      

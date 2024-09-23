@@ -8,8 +8,10 @@ import { useUser } from "./userContext";
 
 
 const PasswordSignIn = () => {
+  // since we are verifying through the email and password
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // we also have to an error state 
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ const PasswordSignIn = () => {
   
   // Instantiate the auth service SDK
 
-
+//  we have s spearte part that takes change for the change in the input section
   const handleChange = (e) => {
     const { name, value } = e.target;
 

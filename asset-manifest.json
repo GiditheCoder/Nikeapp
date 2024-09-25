@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/nikeapp/static/css/main.5a247090.css",
+    "main.js": "/nikeapp/static/js/main.2df216b6.js",
+    "static/js/453.96201cb7.chunk.js": "/nikeapp/static/js/453.96201cb7.chunk.js",
+    "index.html": "/nikeapp/index.html",
+    "main.5a247090.css.map": "/nikeapp/static/css/main.5a247090.css.map",
+    "main.2df216b6.js.map": "/nikeapp/static/js/main.2df216b6.js.map",
+    "453.96201cb7.chunk.js.map": "/nikeapp/static/js/453.96201cb7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5a247090.css",
+    "static/js/main.2df216b6.js"
+  ]
+}

@@ -3,6 +3,7 @@ import React from 'react';
 import '../Products.css';
 import { useNavigate } from 'react-router-dom';
 import SizesCategory from './sizes';
+import { useState, useEffect } from 'react';
 
 const Products = ({ id, title, content, price, colors, count, src, CartHandler, IncreaseItem }) => {
   const navigate = useNavigate();

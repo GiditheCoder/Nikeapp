@@ -16,10 +16,10 @@ import PasswordSignUp from './components/Regsitration';
 import PasswordSignOut from './components/signOut';
 import { collection, getDocs, getDoc, doc, setDoc, updateDoc, increment, deleteDoc } from 'firebase/firestore';
 import { db } from './components/firebase';
-import { initializeAuth } from './auth';  // Import initializeAuth
+import { initializeAuth } from './auth'; 
 
 function App() {
-  const { user, setUser } = useUser();  // Access user and setUser from useUser hook
+  const { user, setUser } = useUser();  
 
   const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState([]);
@@ -28,7 +28,7 @@ function App() {
     try {
       return savedCartItems ? JSON.parse(savedCartItems) : [];
     } catch (error) {
-      console.error("Error parsing cart items from localStorage:", error);
+      console.error("Error parsing cart items from the  localStorage:", error);
       return [];
     }
   });

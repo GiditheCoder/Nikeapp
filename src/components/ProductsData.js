@@ -93,7 +93,7 @@ const addProductstoFirestore = async () =>{
 console.error("Error adding products: ", error)
     }
 }
-
+console.log("Adding products to Firestore...");
 addProductstoFirestore()
   
      
